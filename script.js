@@ -110,4 +110,19 @@ document.addEventListener('DOMContentLoaded', function() {
         item.style.transition = `opacity 0.5s ease ${index * 0.1}s, transform 0.5s ease ${index * 0.1}s`;
         observer.observe(item);
     });
+
+});
+// Scroll Animation
+const sections = document.querySelectorAll("section");
+
+window.addEventListener("scroll", () => {
+    sections.forEach(section => {
+        const position = section.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.2;
+
+        if(position < screenPosition) {
+            section.style.opacity = "1";
+            section.style.transform = "translateY(0)";
+        }
+    });
 });
